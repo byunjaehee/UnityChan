@@ -80,7 +80,7 @@ public class DateCheck : MonoBehaviour
         voiceDate[12, 25]= voiceDate1225;
         voiceDate[12, 31]= voiceDate1231;
 
-        //이전에 실행했던 날짜 얻기
+        //이전에 실행했던 날짜 
         int oldMonth = PlayerPrefs.GetInt("Month");
         int oldDay = PlayerPrefs.GetInt("Day");
         Debug.Log("이전 실행일: " + oldMonth + "월 " + oldDay+ "일\n");
