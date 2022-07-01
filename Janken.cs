@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Janken : MonoBehaviour
 {
-    bool flagJanken = false; //¹¬Âîºü ½ÃÀÛ ÇÃ·¡±×
+    bool flagJanken = false; //ë¬µì°Œë¹  ì‹œìž‘ í”Œëž˜ê·¸
     int modeJanken = 0;
 
     public AudioClip voiceStart;
@@ -64,27 +64,36 @@ public class Janken : MonoBehaviour
 
         left += scaledButton + scaledPadding;
         rtBtnChoki.x = left;
+        rtBtnChoki.y = scaledTop;
+        rtBtnChoki.width = scaledButton;
+        rtBtnChoki.height = scaledButton;
+
+        left += scaledButton + scaledPadding;
+        rtBtnPar.x = left;
+        rtBtnPar.y = scaledTop;
+        rtBtnPar.width = scaledButton;
+        rtBtnPar.height = scaledButton;
 
 
         if (!flagJanken)
         {
 
-            flagJanken = (GUI.Button(new Rect(10, Screen.height - 100, 100, 100), "¹¬Âîºü"));
+            flagJanken = (GUI.Button(new Rect(10, Screen.height - 100, 100, 100), "ë¬µì°Œë¹ "));
         }
 
         if(modeJanken == 1)
         {
-            if(GUI.Button(new Rect(Screen.width / 2 - 50 - 120,Screen.height -110,100,100, "¹¬")))
+            if(GUI.Button(rtBtnGoo, "ë¬µ", guiBtnGoo))
             {
                 myHand = GOO;
                 modeJanken++;
             }
-            if(GUI.Button(new Rect(Scene.width/2 - 50, Screen.height-110,100,100,"Âî")))
+            if(GUI.Button(rtBtnGoo, "ë¬µ", guiBtnGoo))
             {
                 myHand = CHOKI;
                 modeJanken++;
             }
-            if (GUI.Button(new Rect(Scene.width / 2 - 50 + 120, Screen.height - 110, 100, 100, "ºü")))
+            if (GUI.Button(rtBtnGoo, "ë¹ ", guiBtnGoo)))
             {
                 myHand = PAR;
                 modeJanken++;
@@ -142,7 +151,7 @@ public class Janken : MonoBehaviour
         {
             switch(modeJanken)
             {
-                case 0://¹¬Âîºü ½ÃÀÛ
+                case 0://ë¬µì°Œë¹  ì‹œìž‘
                     UnityChanAction(JANKEN);
                     modeJanken++;
                     break;
@@ -167,7 +176,7 @@ public class Janken : MonoBehaviour
                     break;
 
                 case 3:
-                    //¾à°£ÀÇ ½Ã°£ °£°Ý
+                    //ì•½ê°„ì˜ ì‹œê°„ ê°„ê²©
                     waitDelay += Time.deltaTime;
                     if(waitDelay > 1.5f)
                     {
@@ -181,7 +190,7 @@ public class Janken : MonoBehaviour
                 default:
                     flagJanken;
                     modeJanken = 0;
-                    break; //ÃÊ±âÈ­
+                    break; //ì´ˆê¸°í™”
             }
         }
     }
